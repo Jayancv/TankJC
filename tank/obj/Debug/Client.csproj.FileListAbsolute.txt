@@ -4,3 +4,6 @@ C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tank\tank\bin\Debug\tank.pd
 C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tank\tank\obj\Debug\Client.csprojResolveAssemblyReference.cache
 C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tank\tank\obj\Debug\tank.exe
 C:\Users\Jayan\Documents\Visual Studio 2013\Projects\tank\tank\obj\Debug\tank.pdb
+C:\Users\Jayan\Desktop\tank\tankjc\tank\bin\Debug\tank.exe.config
+C:\Users\Jayan\Desktop\tank\tankjc\tank\obj\Debug\tank.exe
+C:\Users\Jayan\Desktop\tank\tankjc\tank\obj\Debug\tank.pdb
