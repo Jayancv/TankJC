@@ -19,3 +19,6 @@ C:\Users\Jayan\Desktop\TankJC\Tank1\Tank1\obj\Debug\Tank1.Properties.Resources.r
 C:\Users\Jayan\Desktop\TankJC\Tank1\Tank1\obj\Debug\Tank1.csproj.GenerateResource.Cache
 C:\Users\Jayan\Desktop\TankJC\Tank1\Tank1\bin\Debug\Tank1.exe
 C:\Users\Jayan\Desktop\TankJC\Tank1\Tank1\bin\Debug\Tank1.pdb
+C:\Z\Uni Notes\S4\MY\Programming Challenge 2\TankJC\Tank1\Tank1\bin\Debug\Tank1.exe.config
+C:\Z\Uni Notes\S4\MY\Programming Challenge 2\TankJC\Tank1\Tank1\obj\Debug\Tank1.exe
+C:\Z\Uni Notes\S4\MY\Programming Challenge 2\TankJC\Tank1\Tank1\obj\Debug\Tank1.pdb

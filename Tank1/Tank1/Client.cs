@@ -26,7 +26,7 @@ namespace Tank1
             thread = new Thread(new ThreadStart(recieve));
         
         }
-        public void send(string msg1,Form1 form){
+        public void send(string msg1,Form1 form){    //used to send data 
             com = form;
             client = new TcpClient();
             client.Connect(IPAddress.Parse(ip),portConnect);
@@ -40,7 +40,7 @@ namespace Tank1
                 thread.Start();
             }
         }
-            public void recieve(){
+            public void recieve(){      //used to recieve msgs
                 TcpListener listner = new TcpListener(IPAddress.Parse(ip),portRecieve);
                 while (true){
                  listner.Start();
