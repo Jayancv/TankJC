@@ -1,1 +1,15 @@
 c:\users\jayan\documents\visual studio 2013\Projects\Tank1\Tank1\bin\Debug\Tank1.exe.config
+C:\Users\Jayan\documents\visual studio 2013\Projects\Tank1\Tank1\bin\Debug\Tank1.exe
+C:\Users\Jayan\documents\visual studio 2013\Projects\Tank1\Tank1\bin\Debug\Tank1.pdb
+C:\Users\Jayan\documents\visual studio 2013\Projects\Tank1\Tank1\bin\Debug\MetroFramework.Design.dll
+C:\Users\Jayan\documents\visual studio 2013\Projects\Tank1\Tank1\bin\Debug\MetroFramework.dll
+C:\Users\Jayan\documents\visual studio 2013\Projects\Tank1\Tank1\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Jayan\documents\visual studio 2013\Projects\Tank1\Tank1\obj\Debug\Tank1.csprojResolveAssemblyReference.cache
+C:\Users\Jayan\documents\visual studio 2013\Projects\Tank1\Tank1\obj\Debug\Tank1.Form1.resources
+C:\Users\Jayan\documents\visual studio 2013\Projects\Tank1\Tank1\obj\Debug\Tank1.Properties.Resources.resources
+C:\Users\Jayan\documents\visual studio 2013\Projects\Tank1\Tank1\obj\Debug\Tank1.csproj.GenerateResource.Cache
+C:\Users\Jayan\documents\visual studio 2013\Projects\Tank1\Tank1\obj\Debug\Tank1.exe
+C:\Users\Jayan\documents\visual studio 2013\Projects\Tank1\Tank1\obj\Debug\Tank1.pdb
+C:\Users\Jayan\Desktop\TankJC\Tank1\Tank1\bin\Debug\Tank1.exe.config
+C:\Users\Jayan\Desktop\TankJC\Tank1\Tank1\obj\Debug\Tank1.exe
+C:\Users\Jayan\Desktop\TankJC\Tank1\Tank1\obj\Debug\Tank1.pdb
