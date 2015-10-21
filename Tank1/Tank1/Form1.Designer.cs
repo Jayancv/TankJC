@@ -63,6 +63,7 @@
             this.btnShoot.TabIndex = 1;
             this.btnShoot.Text = "Shoot";
             this.btnShoot.UseSelectable = true;
+            this.btnShoot.Click += new System.EventHandler(this.btnShoot_Click);
             // 
             // btnUp
             // 
@@ -75,6 +76,7 @@
             this.btnUp.TabIndex = 2;
             this.btnUp.Text = "Up";
             this.btnUp.UseSelectable = true;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
             // 
             // btnDown
             // 
@@ -87,6 +89,7 @@
             this.btnDown.TabIndex = 3;
             this.btnDown.Text = "Down";
             this.btnDown.UseSelectable = true;
+            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
             // 
             // btnLeft
             // 
@@ -99,6 +102,7 @@
             this.btnLeft.TabIndex = 4;
             this.btnLeft.Text = "Left";
             this.btnLeft.UseSelectable = true;
+            this.btnLeft.Click += new System.EventHandler(this.btnLeft_Click);
             // 
             // btnRight
             // 
@@ -111,6 +115,7 @@
             this.btnRight.TabIndex = 5;
             this.btnRight.Text = "Right";
             this.btnRight.UseSelectable = true;
+            this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
             // 
             // button1
             // 
@@ -156,6 +161,7 @@
             this.txtBox.Size = new System.Drawing.Size(477, 93);
             this.txtBox.TabIndex = 9;
             this.txtBox.Text = "";
+            this.txtBox.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
             // Form1
             // 

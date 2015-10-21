@@ -16,8 +16,8 @@ namespace Tank1
     {
         private TcpClient client;
         private string ip = "127.0.0.1";
-        private Int32 portConnect = 1000;
-        private Int32 portRecieve = 2000;
+        private Int32 portConnect = 6000;
+        private Int32 portRecieve = 7000;
         private string input;
         private Form1 com;
         private Thread thread;
@@ -44,9 +44,32 @@ namespace Tank1
                 TcpListener listner = new TcpListener(IPAddress.Parse(ip),portRecieve);
                 while (true){
                  listner.Start();
-                    TcpListener  ;
+                    TcpClient reciever = listner.AcceptTcpClient();
+                    Byte[] bytes = new Byte[256];
+                    Stream r_Stream = reciever.GetStream();
+                    input = null;
+                    int i;
+                    while ((i = r_Stream.Read(bytes, 0, bytes.Length)) != 0) {
+
+                        input = System.Text.Encoding.ASCII.GetString(bytes, 0, i);
+                    }
+                    string[] array = Regex.Split(input, ":");
+                    com.Invoke(new Action (()=>{
+                    
+                    if(array.Length==5){
+                        com.displayData("Nayomi");
+                    }else{
+
+                        com.displayData("\n msg => \n " + input + "\n");
+                    }
+                    
+                    
+                    }
+                        )) ;
+                    r_Stream.Close();
+                    listner.Stop();
+                    reciever.Close();      
                 
-                }
             }
         }
  
