@@ -44,7 +44,7 @@ namespace Tank1
                 TcpListener listner = new TcpListener(IPAddress.Parse(ip),portRecieve);
                 while (true){
                  listner.Start();
-                    TcpListener
+                    TcpListener  ;
                 
                 }
             }
