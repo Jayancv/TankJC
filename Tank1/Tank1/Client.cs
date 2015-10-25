@@ -57,7 +57,7 @@ namespace Tank1
                     com.Invoke(new Action (()=>{
                     
                     if(array.Length==5){
-                        com.displayData("Nayomi");
+                        com.displayData("Jayan");
                     }else{
 
                         com.displayData("\n msg => \n " + input + "\n");
