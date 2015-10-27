@@ -57,18 +57,20 @@ namespace Tank1
                int time = Int32.Parse(lines[2]);
                
             
-            Coin coin=new Coin(x,y,time,val);
+            Coin coin=new Coin(x,y,time,val,com);
             Button bn = com.selectbtn(x,y);
             com.coinDisplay(bn);
 
             Thread coin_thread = new Thread(coin.start);
             coin_thread.Start();
+
             bool finished = coin_thread.Join(time);
             if (!finished)
                 coin_thread.Abort();
+          
             com.coinDiassapear(bn);
 
-
+              
         } 
     }
 }

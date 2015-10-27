@@ -13,20 +13,21 @@ namespace Tank1
         int time;
         int x;
         int y;
-        public Coin(int x, int y,int time, int val)
+        Form1 com;
+        public Coin(int x, int y,int time, int val,Form1 com)
         {
             this.time = time;
             this.value = val;
             this.x = x;
             this.y = y;
+            this.com = com;
 
 
         }
         public void start()
-        {
+        {        
                 Thread.Sleep(time);
-            
-
+               
         }
     }
 }
