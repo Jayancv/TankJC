@@ -25,3 +25,12 @@ C:\Z\Uni Notes\S4\MY\Programming Challenge 2\TankJC\Tank1\Tank1\obj\Debug\Tank1.
 C:\Users\Jayan\Desktop\Tank\TankJC\Tank1\Tank1\bin\Debug\Tank1.exe.config
 C:\Users\Jayan\Desktop\Tank\TankJC\Tank1\Tank1\obj\Debug\Tank1.exe
 C:\Users\Jayan\Desktop\Tank\TankJC\Tank1\Tank1\obj\Debug\Tank1.pdb
+C:\Users\Jayan\Desktop\Tank\TankJC\Tank1\Tank1\bin\Debug\Tank1.exe
+C:\Users\Jayan\Desktop\Tank\TankJC\Tank1\Tank1\bin\Debug\Tank1.pdb
+C:\Users\Jayan\Desktop\Tank\TankJC\Tank1\Tank1\bin\Debug\MetroFramework.Design.dll
+C:\Users\Jayan\Desktop\Tank\TankJC\Tank1\Tank1\bin\Debug\MetroFramework.dll
+C:\Users\Jayan\Desktop\Tank\TankJC\Tank1\Tank1\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Jayan\Desktop\Tank\TankJC\Tank1\Tank1\obj\Debug\Tank1.csprojResolveAssemblyReference.cache
+C:\Users\Jayan\Desktop\Tank\TankJC\Tank1\Tank1\obj\Debug\Tank1.Form1.resources
+C:\Users\Jayan\Desktop\Tank\TankJC\Tank1\Tank1\obj\Debug\Tank1.Properties.Resources.resources
+C:\Users\Jayan\Desktop\Tank\TankJC\Tank1\Tank1\obj\Debug\Tank1.csproj.GenerateResource.Cache

@@ -96,7 +96,7 @@
             this.btnLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLeft.Location = new System.Drawing.Point(163, 45);
+            this.btnLeft.Location = new System.Drawing.Point(3, 45);
             this.btnLeft.Name = "btnLeft";
             this.btnLeft.Size = new System.Drawing.Size(60, 30);
             this.btnLeft.TabIndex = 4;
@@ -109,7 +109,7 @@
             this.btnRight.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRight.Location = new System.Drawing.Point(15, 45);
+            this.btnRight.Location = new System.Drawing.Point(168, 45);
             this.btnRight.Name = "btnRight";
             this.btnRight.Size = new System.Drawing.Size(60, 30);
             this.btnRight.TabIndex = 5;
@@ -156,7 +156,7 @@
             // 
             // txtBox
             // 
-            this.txtBox.Location = new System.Drawing.Point(38, 369);
+            this.txtBox.Location = new System.Drawing.Point(12, 359);
             this.txtBox.Name = "txtBox";
             this.txtBox.Size = new System.Drawing.Size(477, 93);
             this.txtBox.TabIndex = 9;
