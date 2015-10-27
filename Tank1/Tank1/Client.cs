@@ -15,13 +15,13 @@ namespace Tank1
     {
         private TcpClient client;
         private string ip = "127.0.0.1";
-
+        private Form1 com;
+        private Thread thread;
         private Int32 portIn = 6000;   //port use to connect
         private Int32 portOut = 7000;  //port to recieve
 
         private string data;
-        private Form1 com;
-        private Thread thread;
+        
         public Client()
         {
             thread = new Thread(new ThreadStart(recieve));
@@ -51,28 +51,35 @@ namespace Tank1
             while (true)
             {
                 listner.Start();
-                TcpClient clientRecieve = listner.AcceptTcpClient();
-                Stream streamRecieve = clientRecieve.GetStream();
+                TcpClient reciever = listner.AcceptTcpClient();
+                Stream r_stream = reciever.GetStream();
                 Byte[] bytes = new Byte[256];
 
                 int i;
                 data = null;
 
-                while ((i = streamRecieve.Read(bytes, 0, bytes.Length)) != 0)
+                while ((i = r_stream.Read(bytes, 0, bytes.Length)) != 0)
                 {
                     data = System.Text.Encoding.ASCII.GetString(bytes, 0, i);
                 }
                 string[] lines = Regex.Split(data, ":");
+                
                 com.Invoke(new Action(() =>
                 {
                     if (lines.Length == 5)
-                        com.displayData("jayan");
-                    else
+                    {
+                        com.displayData("Game initiate ");
+                        com.stringEvaluate(data);
                         com.displayData("\n msg => \n" + data + "\n");
+                    }
+                    else
+                    {
+                        com.displayData("\n msg => \n" + data + "\n");
+                    }
                 }));
-                streamRecieve.Close();
+                r_stream.Close();
                 listner.Stop();
-                clientRecieve.Close();
+                reciever.Close();
             }
         }
 

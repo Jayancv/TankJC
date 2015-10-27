@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 using MetroFramework;
+using System.Text.RegularExpressions;
 
 
 namespace Tank1
@@ -65,8 +66,27 @@ namespace Tank1
             txtBox.ScrollToCaret();
         }
 
+        private void updateBtbn(Button btn,int n)
+        {
+            btn.Text = n.ToString();
+        }
+        public void stringEvaluate(String data)
+        {
+            Button[ , ] btns =new Button[ , ] {{b1,b2,b3,b4,b5,b6,b7,b8,b9,b0} };
+            string[] lines = Regex.Split(data, ":");
+            if (lines[0] == "I")
+            {
+                for (int x = 2; x < lines.Length; x++) {
+                    string[] sublines = Regex.Split(lines[x], ";");
+                    for (int y = 0; y < sublines.Length; y++) {
+                        string[] cell = Regex.Split(sublines[y], ",");
+                        if (Int32.Parse(cell[0]) == 0) {
+                            updateBtbn(btns[Int32.Parse(cell[0]), Int32.Parse(cell[1])], x);
+                        }
+                    }
+                }
+            }
 
-
-       
+        }
     }
 }
