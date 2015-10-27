@@ -16,6 +16,7 @@ namespace Tank1
         private TcpClient client;
         private string ip = "127.0.0.1";
         private Form1 com;
+        private stringEvaluator eval;
         private Thread thread;
         private Int32 portIn = 6000;   //port use to connect
         private Int32 portOut = 7000;  //port to recieve
@@ -25,6 +26,7 @@ namespace Tank1
         public Client()
         {
             thread = new Thread(new ThreadStart(recieve));
+            eval = new stringEvaluator();
         }
 
         //to send message to the server
@@ -69,12 +71,14 @@ namespace Tank1
                     if (lines.Length == 5)
                     {
                         com.displayData("Game initiate ");
-                        com.stringEvaluate(data);
+                        eval.evaluate(data,com);
                         com.displayData("\n msg => \n" + data + "\n");
                     }
                     else
                     {
+                        eval.evaluate(data, com);
                         com.displayData("\n msg => \n" + data + "\n");
+
                     }
                 }));
                 r_stream.Close();
