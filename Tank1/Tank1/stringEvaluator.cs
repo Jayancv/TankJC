@@ -30,9 +30,6 @@ namespace Tank1
             {
                 coin(lines, com);
             }
-
-
-
         }
 
         private void initiate_Evaluate(String[] lines, Form1 com)    {
@@ -68,9 +65,11 @@ namespace Tank1
             if (!finished)
                 coin_thread.Abort();
           
-            com.coinDiassapear(bn);
-
-              
+            com.coinDiassapear(bn);       
         } 
+
+
+
+
     }
 }
