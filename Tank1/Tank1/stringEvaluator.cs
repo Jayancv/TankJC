@@ -17,7 +17,6 @@ namespace Tank1
         private string data;
         private Player P1, P2, P3, P4, P5;
        
-
         public void evaluate(String data, Form1 com)
         {
             this.data = data;
@@ -32,9 +31,15 @@ namespace Tank1
             {
                 coin(lines, com);
             }
-            else if (lines[0] == "S")
-                newPlayer(lines);   
+            else if (lines[0] == "S"){
+                newPlayer(lines);
+            }
+            else if (lines[0] == "G")
+            {
+               // tankMove(lines, com);
+            }
         }
+
 
         private void initiate_Evaluate(String[] lines, Form1 com)    {
             for (int x = 2; x < 5; x++)       {
@@ -97,10 +102,31 @@ namespace Tank1
             com.tankDisplay(bn);
                
             }
+            }
+
+
+        private void tankMove(String[] lines,Form com)
+        {
+            for (int x = 1; x < lines.Length ; x++)
+            {
+                string[] sublines = Regex.Split(lines[x], ";");
+                String[] dire = Regex.Split(sublines[1], ",");
+                int x1= Int32.Parse(dire[0]);
+                int y1 = Int32.Parse(dire[1]);
+                int d = Int32.Parse(sublines[2]);
+                bool s;
+                if (sublines[3] == "1")
+                    s = true;
+                else
+                    s = false;
+                int h = Int32.Parse(sublines[4]);
+                int c = Int32.Parse(sublines[5]);
+                int p = Int32.Parse(sublines[6]);
+                
 
             }
-        
 
 
+        }
     }
 }
