@@ -105,7 +105,11 @@ namespace Tank1
             btn.BackgroundImage = Properties.Resources.blank;
         
         }
-
+        public void tankDisplay(Button btn)
+        {
+            btn.BackgroundImage = Properties.Resources.tank1;
+            //Image.FromFile(@"C:\Users\Jayan\Desktop\Tank\TankJC\Tank1\Tank1\image\coin.png");
+        }
 
     }
 }

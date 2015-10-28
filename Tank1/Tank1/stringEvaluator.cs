@@ -8,12 +8,14 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 
+
 namespace Tank1
 {
     class stringEvaluator
     {
         private Form1 com;
         private string data;
+        private Player P1, P2, P3, P4, P5;
        
 
         public void evaluate(String data, Form1 com)
@@ -24,12 +26,14 @@ namespace Tank1
             string[] lines = Regex.Split(data, ":");
             if (lines[0] == "I")
             {
-               initiate_Evaluate( lines,com);
+                initiate_Evaluate(lines, com);
             }
             else if (lines[0] == "C")
             {
                 coin(lines, com);
             }
+            else if (lines[0] == "S")
+                newPlayer(lines);   
         }
 
         private void initiate_Evaluate(String[] lines, Form1 com)    {
@@ -66,9 +70,36 @@ namespace Tank1
                 coin_thread.Abort();
           
             com.coinDiassapear(bn);       
-        } 
+        }
 
+        private void newPlayer(String[] lines)
+        {
+            for( int i=1; i < lines.Length ; i++){
+                 string[] sublines = Regex.Split(lines[i], ";");
+               
+            string[] location = Regex.Split(sublines[1], ",");
+            int x = Int32.Parse(location[0]);
+            int y = Int32.Parse(location[1]);
+            int dir = Int32.Parse(sublines[2]);
 
+            if (sublines[1] == "P1") {
+                P1 = new Player(x,y,dir);            
+            }else if (sublines[1] == "P2") {
+                P2 = new Player(x,y,dir);            
+            }else if (sublines[1] == "P3") {
+                P3 = new Player(x,y,dir);            
+            }else if (sublines[1] == "P4") {
+                P4 = new Player(x,y,dir);            
+            }else if (sublines[1] == "P5") {
+                P5 = new Player(x,y,dir);            
+            }
+            Button bn = com.selectbtn(x, y);
+            com.tankDisplay(bn);
+               
+            }
+
+            }
+        
 
 
     }

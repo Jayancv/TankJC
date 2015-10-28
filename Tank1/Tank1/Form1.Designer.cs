@@ -63,7 +63,6 @@
             this.b75 = new System.Windows.Forms.Button();
             this.b74 = new System.Windows.Forms.Button();
             this.b73 = new System.Windows.Forms.Button();
-            this.b72 = new System.Windows.Forms.Button();
             this.b71 = new System.Windows.Forms.Button();
             this.b70 = new System.Windows.Forms.Button();
             this.b69 = new System.Windows.Forms.Button();
@@ -73,7 +72,6 @@
             this.b65 = new System.Windows.Forms.Button();
             this.b64 = new System.Windows.Forms.Button();
             this.b63 = new System.Windows.Forms.Button();
-            this.b62 = new System.Windows.Forms.Button();
             this.b61 = new System.Windows.Forms.Button();
             this.b60 = new System.Windows.Forms.Button();
             this.b59 = new System.Windows.Forms.Button();
@@ -137,6 +135,8 @@
             this.b1 = new System.Windows.Forms.Button();
             this.b0 = new System.Windows.Forms.Button();
             this.txtBox = new System.Windows.Forms.RichTextBox();
+            this.b72 = new System.Windows.Forms.Button();
+            this.b62 = new System.Windows.Forms.Button();
             this.metroPanel1.SuspendLayout();
             this.metroTile1.SuspendLayout();
             this.SuspendLayout();
@@ -583,15 +583,6 @@
             this.b73.Text = "button4";
             this.b73.UseVisualStyleBackColor = true;
             // 
-            // b72
-            // 
-            this.b72.Location = new System.Drawing.Point(230, 79);
-            this.b72.Name = "b72";
-            this.b72.Size = new System.Drawing.Size(27, 27);
-            this.b72.TabIndex = 72;
-            this.b72.Text = "button3";
-            this.b72.UseVisualStyleBackColor = true;
-            // 
             // b71
             // 
             this.b71.Location = new System.Drawing.Point(230, 51);
@@ -672,16 +663,6 @@
             this.b63.TabIndex = 63;
             this.b63.Text = "button4";
             this.b63.UseVisualStyleBackColor = true;
-            // 
-            // b62
-            // 
-            this.b62.BackgroundImage = global::Tank1.Properties.Resources.blank;
-            this.b62.Location = new System.Drawing.Point(199, 79);
-            this.b62.Name = "b62";
-            this.b62.Size = new System.Drawing.Size(27, 27);
-            this.b62.TabIndex = 62;
-            this.b62.Text = "button3";
-            this.b62.UseVisualStyleBackColor = true;
             // 
             // b61
             // 
@@ -1249,6 +1230,25 @@
             this.txtBox.TabIndex = 9;
             this.txtBox.Text = "";
             this.txtBox.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
+            // 
+            // b72
+            // 
+            this.b72.Location = new System.Drawing.Point(230, 79);
+            this.b72.Name = "b72";
+            this.b72.Size = new System.Drawing.Size(27, 27);
+            this.b72.TabIndex = 72;
+            this.b72.Text = "button3";
+            this.b72.UseVisualStyleBackColor = true;
+            // 
+            // b62
+            // 
+            this.b62.BackgroundImage = global::Tank1.Properties.Resources.blank;
+            this.b62.Location = new System.Drawing.Point(199, 79);
+            this.b62.Name = "b62";
+            this.b62.Size = new System.Drawing.Size(27, 27);
+            this.b62.TabIndex = 62;
+            this.b62.Text = "button3";
+            this.b62.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

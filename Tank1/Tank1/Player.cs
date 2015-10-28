@@ -10,6 +10,12 @@ namespace Tank1
     {
         int x0, yo, x, y;
         int dir;
+        public Player(int x, int y, int dir)
+        {
+            this.x = x;
+            this.y = y;
+            this.dir = dir;
+        }
 
 
     }
