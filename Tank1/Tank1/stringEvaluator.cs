@@ -99,35 +99,13 @@ namespace Tank1
                 P0 = new Player(x,y,dir);            
             }
             Button bn = com.selectbtn(x, y);
-            com.tankDisplay(bn, sublines[0]);
+            com.tankDisplay(bn, sublines[0], dir);
                
             }
             }
 
 
-        private void tankMove(String[] lines,Form com)
-        {
-            for (int x = 1; x < lines.Length ; x++)
-            {
-                string[] sublines = Regex.Split(lines[x], ";");
-                String[] dire = Regex.Split(sublines[1], ",");
-                int x1= Int32.Parse(dire[0]);
-                int y1 = Int32.Parse(dire[1]);
-                int d = Int32.Parse(sublines[2]);
-                bool s;
-                if (sublines[3] == "1")
-                    s = true;
-                else
-                    s = false;
-                int h = Int32.Parse(sublines[4]);
-                int c = Int32.Parse(sublines[5]);
-                int p = Int32.Parse(sublines[6]);
-                
-
-            }
-
-
-        }
+       
         private void tankMoves(String[] lines)
         {
             for (int x = 1; x < lines.Length - 1; x++)
@@ -147,6 +125,7 @@ namespace Tank1
                 int p = Int32.Parse(sublines[6]);
                 int x0 = 0;
                 int y0 = 0;
+               
                 if (sublines[0] == "P1")
                 {
                     P1.move(x1, y1, d, s, h, p, c);
@@ -180,10 +159,21 @@ namespace Tank1
                 Button bn = com.selectbtn(x1, y1);
 
                 Button pre = com.selectbtn(x0, y0);
-                com.tankMove(pre, bn, sublines[0]);
+                com.tankMove(pre, bn, sublines[0],d);
 
             }
+            String dam = lines[lines.Length - 1];
+            string[] bric = Regex.Split(dam, ";");
+            for (int n = 0; n < bric.Length;n++ )
+            {
+                String[] cod = Regex.Split(bric[n], ",");
+                int x2 = Int32.Parse(cod[0]);
+                int y2 = Int32.Parse(cod[1]);
+                int damage = Int32.Parse(cod[2]);
+                Button bn2 = com.selectbtn(x2, y2);
+                com.brickDamage(bn2, damage);
 
+            }
 
         }
     }

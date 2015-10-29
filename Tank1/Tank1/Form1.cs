@@ -69,17 +69,17 @@ namespace Tank1
         public void updateBtn(Button btn,int n)
         { 
         if(n==2){
-        btn.Text = n.ToString();
+        //btn.Text = n.ToString();
         btn.BackgroundImage = Properties.Resources.brick;
         }
         else if (n == 3)
         {
-            btn.Text = n.ToString();
+            //btn.Text = n.ToString();
             btn.BackgroundImage = Properties.Resources.stone;
         }
         else if (n == 4)
         {
-            btn.Text = n.ToString();
+            //btn.Text = n.ToString();
             btn.BackgroundImage = Properties.Resources.water;
                 //Image.FromFile(@"C:\Users\Jayan\Desktop\Tank\TankJC\Tank1\Tank1\image\water.jpg");
 
@@ -105,30 +105,46 @@ namespace Tank1
             btn.BackgroundImage = Properties.Resources.blank;
         
         }
-        public void tankDisplay(Button btn, String playerNo)
+        public void tankDisplay(Button btn, String playerNo, int d)
         {
+            Image im = rotate(Properties.Resources.tank2, d);
             if (playerNo == "P1")
             {
-                btn.BackgroundImage = Properties.Resources.tank2;
+                im= rotate(Properties.Resources.tank2, d);
+                
             }
             else if (playerNo == "P2")
             {
-                btn.BackgroundImage = Properties.Resources.tank1;
+                 im= rotate(Properties.Resources.tank1,d);
             }
             else if (playerNo == "P3")
             {
-                btn.BackgroundImage = Properties.Resources.tank2;
+                 im= rotate(Properties.Resources.tank2,d);
             }
             else if (playerNo == "P4")
             {
-                btn.BackgroundImage = Properties.Resources.tank1;
+               
+                 im= rotate(Properties.Resources.tank1,d);
             }
             else if (playerNo == "P0")
             {
-                btn.BackgroundImage = Properties.Resources.coin;
+                 im= rotate(Properties.Resources.coin ,d);
+                
             }
+            btn.BackgroundImage = im;
 
         }
+        private Image rotate(Image im,int d){
+           if(d==1)
+               im.RotateFlip(RotateFlipType.Rotate90FlipNone);
+           if (d == 2)
+               im.RotateFlip(RotateFlipType.Rotate180FlipNone);
+           if (d == 3)
+               im.RotateFlip(RotateFlipType.Rotate270FlipNone);
+
+            return im;
+        }
+
 
         public void tankDissapear(Button btn)
         {
@@ -136,11 +152,23 @@ namespace Tank1
             btn.BackgroundImage = Properties.Resources.blank;
 
         }
-        public void tankMove(Button pre, Button btn, String playerNo)
+        public void tankMove(Button pre, Button btn, String playerNo,int d)
         {
             tankDissapear(pre);
-            tankDisplay(btn, playerNo);
+            tankDisplay(btn, playerNo,d);
 
+        }
+        public void brickDamage(Button btn,int dam)
+        {
+            int d = 100-(dam * 25);
+            btn.Text = d.ToString()+"%";
+            if (dam == 4)
+                brickDisapear(btn);
+
+        }
+        public void brickDisapear(Button btn) {
+            btn.BackgroundImage = Properties.Resources.blank;
+            btn.Text = "";
         }
 
     }
