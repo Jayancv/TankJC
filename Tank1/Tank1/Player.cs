@@ -8,7 +8,7 @@ namespace Tank1
 {
     class Player
     {
-        int x0, yo, x, y;
+        int x0, y0, x, y;
         int dir;
         int health, points, coins;
         bool shot;
@@ -23,13 +23,28 @@ namespace Tank1
 
             shot = false;
         }
-        public void move(int x, int y, int dir, int h, int p,int c)
+        public void move(int x1, int y1, int dir1, bool sh, int h1, int p1, int c1)
         {
-            x = x;
-            y = y;
-            dir = dir;
+            x0 = x;
+            y0 = y;
+            x = x1;
+            y = y1;
+            dir = dir1;
+            health = h1;
+            points = p1;
+            coins = c1;
+            shot = sh;
 
 
+
+        }
+        public int getPreviousX()
+        {
+            return x0;
+        }
+        public int getPreviousY()
+        {
+            return y0;
         }
 
 

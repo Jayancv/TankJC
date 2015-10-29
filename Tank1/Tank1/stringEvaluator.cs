@@ -15,7 +15,7 @@ namespace Tank1
     {
         private Form1 com;
         private string data;
-        private Player P1, P2, P3, P4, P5;
+        private Player P1, P2, P3, P4, P0;
        
         public void evaluate(String data, Form1 com)
         {
@@ -36,7 +36,7 @@ namespace Tank1
             }
             else if (lines[0] == "G")
             {
-               // tankMove(lines, com);
+               tankMoves(lines);
             }
         }
 
@@ -87,19 +87,19 @@ namespace Tank1
             int y = Int32.Parse(location[1]);
             int dir = Int32.Parse(sublines[2]);
 
-            if (sublines[1] == "P1") {
+            if (sublines[0] == "P1") {
                 P1 = new Player(x,y,dir);            
-            }else if (sublines[1] == "P2") {
+            }else if (sublines[0] == "P2") {
                 P2 = new Player(x,y,dir);            
-            }else if (sublines[1] == "P3") {
+            }else if (sublines[0] == "P3") {
                 P3 = new Player(x,y,dir);            
-            }else if (sublines[1] == "P4") {
+            }else if (sublines[0] == "P4") {
                 P4 = new Player(x,y,dir);            
-            }else if (sublines[1] == "P5") {
-                P5 = new Player(x,y,dir);            
+            }else if (sublines[0] == "P0") {
+                P0 = new Player(x,y,dir);            
             }
             Button bn = com.selectbtn(x, y);
-            com.tankDisplay(bn);
+            com.tankDisplay(bn, sublines[0]);
                
             }
             }
@@ -123,6 +123,64 @@ namespace Tank1
                 int c = Int32.Parse(sublines[5]);
                 int p = Int32.Parse(sublines[6]);
                 
+
+            }
+
+
+        }
+        private void tankMoves(String[] lines)
+        {
+            for (int x = 1; x < lines.Length - 1; x++)
+            {
+                string[] sublines = Regex.Split(lines[x], ";");
+                String[] dire = Regex.Split(sublines[1], ",");
+                int x1 = Int32.Parse(dire[0]);
+                int y1 = Int32.Parse(dire[1]);
+                int d = Int32.Parse(sublines[2]);
+                bool s;
+                if (sublines[3] == "1")
+                    s = true;
+                else
+                    s = false;
+                int h = Int32.Parse(sublines[4]);
+                int c = Int32.Parse(sublines[5]);
+                int p = Int32.Parse(sublines[6]);
+                int x0 = 0;
+                int y0 = 0;
+                if (sublines[0] == "P1")
+                {
+                    P1.move(x1, y1, d, s, h, p, c);
+                    x0 = P1.getPreviousX();
+                    y0 = P1.getPreviousY();
+                }
+                else if (sublines[0] == "P2")
+                {
+                    P2.move(x1, y1, d, s, h, p, c);
+                    x0 = P2.getPreviousX();
+                    y0 = P2.getPreviousY();
+                }
+                else if (sublines[0] == "P3")
+                {
+                    P3.move(x1, y1, d, s, h, p, c);
+                    x0 = P3.getPreviousX();
+                    y0 = P3.getPreviousY();
+                }
+                else if (sublines[0] == "P4")
+                {
+                    P4.move(x1, y1, d, s, h, p, c);
+                    x0 = P4.getPreviousX();
+                    y0 = P4.getPreviousY();
+                }
+                else if (sublines[0] == "P0")
+                {
+                    P0.move(x1, y1, d, s, h, p, c);
+                    x0 = P0.getPreviousX();
+                    y0 = P0.getPreviousY();
+                }
+                Button bn = com.selectbtn(x1, y1);
+
+                Button pre = com.selectbtn(x0, y0);
+                com.tankMove(pre, bn, sublines[0]);
 
             }
 

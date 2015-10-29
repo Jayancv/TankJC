@@ -105,10 +105,42 @@ namespace Tank1
             btn.BackgroundImage = Properties.Resources.blank;
         
         }
-        public void tankDisplay(Button btn)
+        public void tankDisplay(Button btn, String playerNo)
         {
-            btn.BackgroundImage = Properties.Resources.tank1;
-            //Image.FromFile(@"C:\Users\Jayan\Desktop\Tank\TankJC\Tank1\Tank1\image\coin.png");
+            if (playerNo == "P1")
+            {
+                btn.BackgroundImage = Properties.Resources.tank2;
+            }
+            else if (playerNo == "P2")
+            {
+                btn.BackgroundImage = Properties.Resources.tank1;
+            }
+            else if (playerNo == "P3")
+            {
+                btn.BackgroundImage = Properties.Resources.tank2;
+            }
+            else if (playerNo == "P4")
+            {
+                btn.BackgroundImage = Properties.Resources.tank1;
+            }
+            else if (playerNo == "P0")
+            {
+                btn.BackgroundImage = Properties.Resources.coin;
+            }
+
+        }
+
+        public void tankDissapear(Button btn)
+        {
+
+            btn.BackgroundImage = Properties.Resources.blank;
+
+        }
+        public void tankMove(Button pre, Button btn, String playerNo)
+        {
+            tankDissapear(pre);
+            tankDisplay(btn, playerNo);
+
         }
 
     }
