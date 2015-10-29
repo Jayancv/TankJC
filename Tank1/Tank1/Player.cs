@@ -25,9 +25,9 @@ namespace Tank1
         }
         public void move(int x1, int y1, int dir1, bool sh, int h1, int p1, int c1)
         {
-            x0 = x;
-            y0 = y;
-            x = x1;
+            x0 = x;                                //for previous place 
+            y0 = y;                                //for previous place 
+            x = x1;                                //new place 
             y = y1;
             dir = dir1;
             health = h1;
