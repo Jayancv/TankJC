@@ -13,11 +13,11 @@ namespace Tank1
 {
     class Client
     {
-        private TcpClient client;
+        private TcpClient client;       //variables for client
         private string ip = "127.0.0.1";
         private Form1 com;
         private stringEvaluator eval;
-        private Thread thread;
+        private Thread thread;      //creating  the thread
         private Int32 portIn = 6000;   //port use to connect
         private Int32 portOut = 7000;  //port to recieve
 
@@ -25,14 +25,14 @@ namespace Tank1
         
         public Client()
         {
-            thread = new Thread(new ThreadStart(recieve));
-            eval = new stringEvaluator();
+            thread = new Thread(new ThreadStart(recieve));      //create new thread object
+            eval = new stringEvaluator();           //create eval object
         }
 
         //to send message to the server
         public void send(string message, Form1 com)
         {
-            this.com = com;
+            this.com = com;     //initiate variable
             client = new TcpClient();
             client.Connect(IPAddress.Parse(ip), portIn);
             Stream stream = client.GetStream();
@@ -70,7 +70,7 @@ namespace Tank1
                 {
                     if (lines.Length == 5)
                     {
-                        com.displayData("Game initiate ");
+                       // com.displayData("Game initiate ");
                         eval.evaluate(data,com);
                         com.displayData("\n msg => \n" + data + "\n");
                     }

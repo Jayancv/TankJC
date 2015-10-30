@@ -8,9 +8,9 @@ namespace Tank1
 {
     class Player
     {
-        int x0, y0, x, y;
-        int dir;
-        int health, points, coins;
+         private  int x0, y0, x, y;
+        private  int dir;
+        private int health, points, coins;
         bool shot;
         public Player(int x, int y, int dir)
         {

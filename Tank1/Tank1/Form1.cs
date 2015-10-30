@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 using MetroFramework;
@@ -17,11 +18,18 @@ namespace Tank1
     public partial class Form1 : MetroForm
     {
         Client client;
+        private Button[] brick;
+        int brickCount;
         public Form1()
         {
             InitializeComponent();
             client = new Client();
+            brickCount = 0;
+            brick = new Button [10];
+          //  Form1.CheckForIllegalCrossThreadCalls = false;
+
         }
+        
 
         private void btnJoin_Click(object sender, EventArgs e)
         {
@@ -71,6 +79,7 @@ namespace Tank1
         if(n==2){
         //btn.Text = n.ToString();
         btn.BackgroundImage = Properties.Resources.brick;
+            
         }
         else if (n == 3)
         {
@@ -97,6 +106,14 @@ namespace Tank1
 
 
         }
+        public void coinUpdate(Button btn, int time)
+        {
+            coinDisplay(btn);
+            Thread.Sleep(time);
+            coinDiassapear(btn);
+
+        }
+
         public void coinDisplay(Button btn) {
             btn.BackgroundImage = Properties.Resources.coin;
                 //Image.FromFile(@"C:\Users\Jayan\Desktop\Tank\TankJC\Tank1\Tank1\image\coin.png");
@@ -104,6 +121,23 @@ namespace Tank1
         public void coinDiassapear(Button btn) {
             btn.BackgroundImage = Properties.Resources.blank;
         
+        }
+        public void lifeUpdate(Button btn, int time)
+        {
+            lifeDisplay(btn);
+            Thread.Sleep(time);
+            coinDiassapear(btn);
+            lifeDiassapear(btn);
+
+        }
+        private void lifeDisplay(Button btn){
+            btn.BackgroundImage = Properties.Resources.health;
+
+         }
+        public void lifeDiassapear(Button btn)
+        {
+            btn.BackgroundImage = Properties.Resources.blank;
+
         }
         public void tankDisplay(Button btn, String playerNo, int d)
         {
@@ -128,7 +162,7 @@ namespace Tank1
             }
             else if (playerNo == "P0")
             {
-                 im= rotate(Properties.Resources.coin ,d);
+                 im= rotate(Properties.Resources.tank2 ,d);
                 
             }
             btn.BackgroundImage = im;
@@ -169,6 +203,40 @@ namespace Tank1
         public void brickDisapear(Button btn) {
             btn.BackgroundImage = Properties.Resources.blank;
             btn.Text = "";
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            //capture up arrow key
+            if (keyData == Keys.Up)
+            {
+                client.send("UP#", this);
+                return true;
+            }
+            //capture down arrow key
+            if (keyData == Keys.Down)
+            {
+                client.send("DOWN#", this);
+                return true;
+            }
+            //capture left arrow key
+            if (keyData == Keys.Left)
+            {
+                client.send("LEFT#", this);
+                return true;
+            }
+            //capture right arrow key
+            if (keyData == Keys.Right)
+            {
+                client.send("RIGHT#", this);
+                return true;
+            }
+            if (keyData == Keys.Space)
+            {
+                client.send("SHOOT#", this);
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
 
     }

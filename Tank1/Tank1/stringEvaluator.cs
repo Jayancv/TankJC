@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
 
@@ -15,8 +16,8 @@ namespace Tank1
     {
         private Form1 com;
         private string data;
-        private Player P1, P2, P3, P4, P0;
-       
+        private Player P1, P2, P3, P4, P0;     //player objects , only 5 object
+        
         public void evaluate(String data, Form1 com)
         {
             this.data = data;
@@ -38,6 +39,10 @@ namespace Tank1
             {
                tankMoves(lines);
             }
+            else if (lines[0] == "L")
+            {
+                life(lines, com);
+                           }
         }
 
 
@@ -55,28 +60,51 @@ namespace Tank1
         }
 
 
+        //create coins
         private void coin(String[] lines, Form1 com){
                string[] codinate = Regex.Split(lines[1], ",");
                int x = Int32.Parse(codinate[0]);
                int y = Int32.Parse(codinate[1]);
                int val = Int32.Parse(lines[3]);
                int time = Int32.Parse(lines[2]);
-               
-            
+
             Coin coin=new Coin(x,y,time,val,com);
             Button bn = com.selectbtn(x,y);
-            com.coinDisplay(bn);
+            //com.coinDisplay(bn);
 
-            Thread coin_thread = new Thread(coin.start);
+            Thread coin_thread = new Thread(()=>com.coinUpdate(bn,time));
             coin_thread.Start();
 
-            bool finished = coin_thread.Join(time);
-            if (!finished)
-                coin_thread.Abort();
+         //   bool finished = coin_thread.Join(time);
+          //  if (!finished)
+          //      coin_thread.Abort();
           
-            com.coinDiassapear(bn);       
+          //  com.coinDiassapear(bn);       
         }
 
+        
+
+        //create Life Packets
+        private void life(String[] lines, Form1 com)
+        {
+            string[] codinate = Regex.Split(lines[1], ",");
+            int x = Int32.Parse(codinate[0]);
+            int y = Int32.Parse(codinate[1]);
+            int val = 10;
+            int time = Int32.Parse(lines[2]);
+
+
+            LifePack life = new LifePack(x, y, time, val, com);
+            Button bn = com.selectbtn(x, y);
+           // com.lifeDisplay(bn);
+
+            Thread coin_thread = new Thread(() => com.lifeUpdate(bn, time));
+            coin_thread.Start();
+
+
+        }
+
+        //create new tank/players
         private void newPlayer(String[] lines)
         {
             for( int i=1; i < lines.Length ; i++){
@@ -87,7 +115,7 @@ namespace Tank1
             int y = Int32.Parse(location[1]);
             int dir = Int32.Parse(sublines[2]);
 
-            if (sublines[0] == "P1") {
+            if (sublines[0] == "P1") {           
                 P1 = new Player(x,y,dir);            
             }else if (sublines[0] == "P2") {
                 P2 = new Player(x,y,dir);            
@@ -125,7 +153,7 @@ namespace Tank1
                 int p = Int32.Parse(sublines[6]);
                 int x0 = 0;
                 int y0 = 0;
-               
+                if (h != 0) { 
                 if (sublines[0] == "P1")
                 {
                     P1.move(x1, y1, d, s, h, p, c);
@@ -159,7 +187,45 @@ namespace Tank1
                 Button bn = com.selectbtn(x1, y1);
 
                 Button pre = com.selectbtn(x0, y0);
-                com.tankMove(pre, bn, sublines[0],d);
+                com.tankMove(pre, bn, sublines[0], d);
+                }
+                else
+                {
+                    if (sublines[0] == "P1")
+                    {
+                        
+                        x0 = P1.getPreviousX();
+                        y0 = P1.getPreviousY();
+                    }
+                    else if (sublines[0] == "P2")
+                    {
+                       
+                        x0 = P2.getPreviousX();
+                        y0 = P2.getPreviousY();
+                    }
+                    else if (sublines[0] == "P3")
+                    {
+                       
+                        x0 = P3.getPreviousX();
+                        y0 = P3.getPreviousY();
+                    }
+                    else if (sublines[0] == "P4")
+                    {
+                       
+                        x0 = P4.getPreviousX();
+                        y0 = P4.getPreviousY();
+                    }
+                    else if (sublines[0] == "P0")
+                    {
+                        
+                        x0 = P0.getPreviousX();
+                        y0 = P0.getPreviousY();
+                    }
+                    Button bn = com.selectbtn(x1, y1);
+                    com.tankDissapear(bn);
+
+                }
+               
 
             }
             String dam = lines[lines.Length - 1];
