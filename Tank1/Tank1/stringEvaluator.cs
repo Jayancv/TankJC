@@ -24,6 +24,7 @@ namespace Tank1
         }
         public void evaluate(String data, Form1 com)
         {
+            this.com = com;
             this.data = data;
             data = data.Remove(data.Length - 1);
             string[] lines = Regex.Split(data, ":");    //split recevied data sting and split it :
