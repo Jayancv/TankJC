@@ -113,6 +113,26 @@ namespace Tank1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap tan25 {
+            get {
+                object obj = ResourceManager.GetObject("tan25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tank0 {
+            get {
+                object obj = ResourceManager.GetObject("Tank0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap tank1 {
             get {
                 object obj = ResourceManager.GetObject("tank1", resourceCulture);
@@ -126,6 +146,36 @@ namespace Tank1.Properties {
         internal static System.Drawing.Bitmap tank2 {
             get {
                 object obj = ResourceManager.GetObject("tank2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tank24 {
+            get {
+                object obj = ResourceManager.GetObject("tank24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tank26 {
+            get {
+                object obj = ResourceManager.GetObject("Tank26", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tank4 {
+            get {
+                object obj = ResourceManager.GetObject("Tank4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

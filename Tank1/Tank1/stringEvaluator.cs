@@ -17,32 +17,35 @@ namespace Tank1
         private Form1 com;
         private string data;
         private Player P1, P2, P3, P4, P0;     //player objects , only 5 object
-        
+
+        public stringEvaluator(Form1 com1)
+        {
+            this.com = com1;
+        }
         public void evaluate(String data, Form1 com)
         {
             this.data = data;
-            this.com = com;
             data = data.Remove(data.Length - 1);
-            string[] lines = Regex.Split(data, ":");
-            if (lines[0] == "I")
-            {
+            string[] lines = Regex.Split(data, ":");    //split recevied data sting and split it :
+            if (lines[0] == "I")                        //Check 1st part of the server msg
+            {                                           //if 1st letter I means initiate game map
                 initiate_Evaluate(lines, com);
             }
-            else if (lines[0] == "C")
+            else if (lines[0] == "C")                   // C means new coin created in the map
             {
                 coin(lines, com);
             }
-            else if (lines[0] == "S"){
+            else if (lines[0] == "S"){                  // S means players initiate
                 newPlayer(lines);
             }
-            else if (lines[0] == "G")
+            else if (lines[0] == "G")                   // G means Game world updates
             {
                tankMoves(lines);
             }
-            else if (lines[0] == "L")
+            else if (lines[0] == "L")                   // L means life packet
             {
                 life(lines, com);
-                           }
+            }
         }
 
 
@@ -70,16 +73,9 @@ namespace Tank1
 
             Coin coin=new Coin(x,y,time,val,com);
             Button bn = com.selectbtn(x,y);
-            //com.coinDisplay(bn);
-
-            Thread coin_thread = new Thread(()=>com.coinUpdate(bn,time));
-            coin_thread.Start();
-
-         //   bool finished = coin_thread.Join(time);
-          //  if (!finished)
-          //      coin_thread.Abort();
-          
-          //  com.coinDiassapear(bn);       
+   
+            Thread coin_thread = new Thread(()=>com.coinUpdate(bn,time)); //create new thread to update coin ;
+            coin_thread.Start();                                          //start thread
         }
 
         
@@ -96,9 +92,8 @@ namespace Tank1
 
             LifePack life = new LifePack(x, y, time, val, com);
             Button bn = com.selectbtn(x, y);
-           // com.lifeDisplay(bn);
 
-            Thread coin_thread = new Thread(() => com.lifeUpdate(bn, time));
+            Thread coin_thread = new Thread(() => com.lifeUpdate(bn, time)); //create new thread to update life Packt ;
             coin_thread.Start();
 
 
@@ -222,7 +217,7 @@ namespace Tank1
                         y0 = P0.getPreviousY();
                     }
                     Button bn = com.selectbtn(x1, y1);
-                    com.tankDissapear(bn);
+                    com.tankDisappear(bn);
 
                 }
                

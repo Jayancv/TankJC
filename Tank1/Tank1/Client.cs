@@ -26,13 +26,13 @@ namespace Tank1
         public Client()
         {
             thread = new Thread(new ThreadStart(recieve));      //create new thread object
-            eval = new stringEvaluator();           //create eval object
+            eval = new stringEvaluator(com);                    //create eval object
         }
 
         //to send message to the server
         public void send(string message, Form1 com)
         {
-            this.com = com;     //initiate variable
+            this.com = com;                                   //initiate variable
             client = new TcpClient();
             client.Connect(IPAddress.Parse(ip), portIn);
             Stream stream = client.GetStream();
@@ -46,6 +46,8 @@ namespace Tank1
             if (message.Equals("JOIN#"))    //starts the game with the command JOIN#
                 thread.Start();
         }
+
+
         //to get messages from server
         public void recieve()
         {
@@ -68,18 +70,8 @@ namespace Tank1
                 
                 com.Invoke(new Action(() =>
                 {
-                    if (lines.Length == 5)
-                    {
-                       // com.displayData("Game initiate ");
-                        eval.evaluate(data,com);
-                        com.displayData("\n msg => \n" + data + "\n");
-                    }
-                    else
-                    {
                         eval.evaluate(data, com);
                         com.displayData("\n msg => \n" + data + "\n");
-
-                    }
                 }));
                 r_stream.Close();
                 listner.Stop();

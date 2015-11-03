@@ -9,8 +9,8 @@ namespace Tank1
 {
     class Coin
     {
-        int value;
-        int time;
+        int value;            //coin value
+        int time;             //display time
         int x;
         int y;
         Form1 com;
@@ -21,13 +21,7 @@ namespace Tank1
             this.x = x;
             this.y = y;
             this.com = com;
-
-
         }
-        public void start()
-        {        
-          //    Thread.Sleep(time);
-               
-        }
+       
     }
 }
